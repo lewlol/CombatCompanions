@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb94a30a146beb4cb6255b91c803454, type: 3}
+  m_Name: Skeleton
+  m_EditorClassIdentifier: 
+  enemyName: Skeleton
+  enemyPrefab: {fileID: 1215641646071328420, guid: ae91fc2e512e19e459970239c0ee84af, type: 3}
+  drops:
+  - drop: {fileID: 5874503469820142906, guid: 549dc717e03b0e44a9c2133364b0c379, type: 3}
+    dropChance: 50
+  - drop: {fileID: 5660372794073461857, guid: 670ba3d5f17119a47806bab74b982d1c, type: 3}
+    dropChance: 70
+  maxHealth: 7
+  moveSpeed: 3
+  points: 2
+  damage: 1
+  attackRange: 0.7
+  attackDelay: 0.6
