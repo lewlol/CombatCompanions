@@ -48,4 +48,24 @@ public class GameEvents : MonoBehaviour
             onWaveTimerCountdown(time);
         }
     }
+
+    //CALLED WHEN A SOUND IS SPAWNED TO PLAY
+    public event Action<Vector2, AudioClip> onSpawnAudio;
+    public void SpawnAudio(Vector2 position, AudioClip clip)
+    {
+        if(onSpawnAudio != null)
+        {
+            onSpawnAudio(position, clip);
+        }
+    }
+
+    //CALLED WHEN A TEXT MESH IS SENT TO BE SPAWNED
+    public event Action<string, Vector2, int, Color, float> onSpawnTextMesh;
+    public void SpawnTextMesh(string text, Vector2 spawnLocation, int size, Color color, float time)
+    {
+        if (onSpawnTextMesh != null)
+        {
+            onSpawnTextMesh(text, spawnLocation, size, color, time);
+        }
+    }
 }

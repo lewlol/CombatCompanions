@@ -13,14 +13,7 @@ public class CompanionAI : MonoBehaviour
     public Transform player;
 
     //Stats
-    public float stopRadius;
-    public float attackRange;
-    public float speed;
-    public GameObject projectile;
-    public float projectileSpeed;
-    public float attackDelay;
-    public float projectileLifetime;
-    public float damage;
+    public Companion companion;
 
     private void Awake()
     {
@@ -44,7 +37,7 @@ public class CompanionAI : MonoBehaviour
         }
 
         float distance = Vector2.Distance(transform.position, currentInterest.position);
-        if(distance > stopRadius) //Follow Target
+        if(distance > companion.stopRadius) //Follow Target
         {
             following = true;
         }
@@ -74,24 +67,24 @@ public class CompanionAI : MonoBehaviour
     private void FollowTarget(Transform interest)
     {
         Vector2 direction = interest.position - transform.position;
-        rb.linearVelocity = direction * speed;
+        rb.linearVelocity = direction * companion.speed;
     }
 
     private void AttackEnemy()
     {
         Vector2 direction = target.position - transform.position;
 
-        GameObject newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
-        newProjectile.GetComponent<Rigidbody2D>().linearVelocity = direction.normalized * projectileSpeed;
-        newProjectile.GetComponent<Bullet>().damage = damage;
+        GameObject newProjectile = Instantiate(companion.projectile, transform.position, Quaternion.identity);
+        newProjectile.GetComponent<Rigidbody2D>().linearVelocity = direction.normalized * companion.projectileSpeed;
+        newProjectile.GetComponent<Bullet>().damage = companion.damage;
 
-        Destroy(newProjectile, projectileLifetime);
+        Destroy(newProjectile, companion.projectileLifetime);
         StartCoroutine(CanAttackEnum());
     }
 
     private void SearchForEnemies()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, attackRange);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, companion.attackRange);
         foreach(Collider2D collider in colliders)
         {
             if(collider.gameObject.tag == "Enemy")
@@ -103,16 +96,16 @@ public class CompanionAI : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, stopRadius);
+        Gizmos.DrawWireSphere(transform.position, companion.stopRadius);
 
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.DrawWireSphere(transform.position, companion.attackRange);
     }
 
     IEnumerator CanAttackEnum()
     {
         canAttack = false;
-        yield return new WaitForSeconds(attackDelay);
+        yield return new WaitForSeconds(companion.attackDelay);
         canAttack = true;
     }
 }

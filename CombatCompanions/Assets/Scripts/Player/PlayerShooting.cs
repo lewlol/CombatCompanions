@@ -50,6 +50,8 @@ public class PlayerShooting : MonoBehaviour
         newBullet.GetComponent<Rigidbody2D>().linearVelocity = (direction + bulletAccuracy) * gun.bulletSpeed;
         newBullet.GetComponent<Bullet>().damage = gun.damage;
 
+        GameEvents.gameEvent.SpawnAudio(transform.position, gun.shootSound);
+
         Destroy(newBullet, gun.bulletLifetime);
     }
 

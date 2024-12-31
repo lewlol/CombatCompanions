@@ -20,3 +20,4 @@ MonoBehaviour:
   bulletOBJ: {fileID: 6297551483301342492, guid: ae48167569844124d994c79cc408098a, type: 3}
   bulletSpeed: 12
   bulletLifetime: 1
+  shootSound: {fileID: 8300000, guid: f64a4538cfc61d14298c520c3e1bc184, type: 3}

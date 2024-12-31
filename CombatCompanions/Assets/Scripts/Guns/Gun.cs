@@ -17,4 +17,7 @@ public class Gun : ScriptableObject
     public GameObject bulletOBJ;
     public float bulletSpeed;
     public float bulletLifetime;
+
+    [Header("Sounds")]
+    public AudioClip shootSound;
 }
