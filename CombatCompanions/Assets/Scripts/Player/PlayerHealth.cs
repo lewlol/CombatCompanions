@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour
         if(health <= 0)
         {
             //Dead
-
+            PlayerEvents.playerEvent.PlayerDied();
             health = 0; //Sorts the UI Bar out if lower than 0
         }
 

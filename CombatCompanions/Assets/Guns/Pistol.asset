@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunName: Generic Pistol
   damage: 1
-  attackDelay: 0.8
-  accuracy: 0.08
+  attackDelay: 0.1
+  accuracy: 0.05
   automatic: 0
   bulletOBJ: {fileID: 6297551483301342492, guid: ae48167569844124d994c79cc408098a, type: 3}
   bulletSpeed: 12
