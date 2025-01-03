@@ -29,6 +29,16 @@ public class GameEvents : MonoBehaviour
         }
     }
 
+    //CALLED WHEN WAVE ENDS
+    public event Action onWaveEnded;
+    public void WaveEnded()
+    {
+        if(onWaveEnded != null)
+        {
+            onWaveEnded();
+        }
+    }
+
     //CALLED WHEN THE ENEMIES REMAINING COUNTER CHANGES
     public event Action<int> onEnemiesRemainingChanged;
     public void EnemiesRemainingChanged(int enemiesRemaining)

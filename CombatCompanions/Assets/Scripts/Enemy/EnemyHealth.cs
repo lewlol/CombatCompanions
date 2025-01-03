@@ -13,6 +13,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        GameEvents.gameEvent.SpawnAudio(transform.position, enemy.damagedSound);
         GameEvents.gameEvent.SpawnTextMesh("-" + damage, transform.position, 35, ColorIndex.colors.redCrimson, 1.5f);
         if(health <= 0)
         {

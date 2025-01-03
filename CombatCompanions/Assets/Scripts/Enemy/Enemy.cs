@@ -17,4 +17,5 @@ public class Enemy : ScriptableObject
     public float damage;
     public float attackRange;
     public float attackDelay;
+    public AudioClip damagedSound;
 }

@@ -39,12 +39,13 @@ public class MerchantUI : MonoBehaviour
     {
         GameEvents.gameEvent.onOpenMerchantUI += OpenUI;
         GameEvents.gameEvent.onCloseMerchantUI += CloseUI;
+        GameEvents.gameEvent.onWaveEnded += SetItemsForRound;
         merchant = GameObject.FindGameObjectWithTag("Merchant").transform;
     }
     public void OpenUI()
     {
         merchantUI.SetActive(true);
-        SetItems();
+        SetItemsUI();
     }
 
     public void CloseUI()
@@ -52,30 +53,36 @@ public class MerchantUI : MonoBehaviour
         merchantUI.SetActive(false);
     }
 
-    private void SetItems()
+    private void SetItemsUI()
     {
-        int c1 = Random.Range(0, companions.Length);
-        slot1Companion = companions[c1];
         slot1Image.sprite = slot1Companion.companionSprite;
         slot1Name.text = slot1Companion.companionName;
         slot1Description.text = slot1Companion.companionDescription;
         slot1Cost.text = slot1Companion.companionCost.ToString();
 
-        int c2 = Random.Range(0, companions.Length);
-        slot2Companion = companions[c2];
         slot2Image.sprite = slot2Companion.companionSprite;
         slot2Name.text = slot2Companion.companionName;
         slot2Description.text = slot2Companion.companionDescription;
         slot2Cost.text = slot2Companion.companionCost.ToString();
 
-        int c3 = Random.Range(0, companions.Length);
-        slot3Companion = companions[c3];
         slot3Image.sprite = slot3Companion.companionSprite;
         slot3Name.text = slot3Companion.companionName;
         slot3Description.text = slot3Companion.companionDescription;
         slot3Cost.text = slot3Companion.companionCost.ToString();
 
         CheckSoulCounts();
+    }
+
+    public void SetItemsForRound()
+    {
+        int c1 = Random.Range(0, companions.Length);
+        slot1Companion = companions[c1];
+
+        int c2 = Random.Range(0, companions.Length);
+        slot2Companion = companions[c2];
+
+        int c3 = Random.Range(0, companions.Length);
+        slot3Companion = companions[c3];
     }
 
     private void CheckSoulCounts()

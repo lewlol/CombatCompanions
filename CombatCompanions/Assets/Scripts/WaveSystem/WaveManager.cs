@@ -19,7 +19,8 @@ public class WaveManager : MonoBehaviour
     {
         GameEvents.gameEvent.onEnemyDied += EnemyDied;
         c = midWaveTime;
-        midWave = true;
+
+        Invoke("EndWave", 0.5f);
     }
 
     public void StartWave()
@@ -60,6 +61,7 @@ public class WaveManager : MonoBehaviour
 
     private void EndWave()
     {
+        GameEvents.gameEvent.WaveEnded();
         midWave = true;
     }
 

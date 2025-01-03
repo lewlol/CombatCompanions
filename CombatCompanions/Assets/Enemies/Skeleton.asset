@@ -23,3 +23,4 @@ MonoBehaviour:
   damage: 2
   attackRange: 1
   attackDelay: 0.5
+  damagedSound: {fileID: 8300000, guid: 45e9f08d84aa2704eb5f2abb1c990df0, type: 3}
