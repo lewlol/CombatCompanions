@@ -13,9 +13,17 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-        GameEvents.gameEvent.SpawnTextMesh("-" + damage, transform.position, 25, Color.red, 1.5f);
+        GameEvents.gameEvent.SpawnTextMesh("-" + damage, transform.position, 35, ColorIndex.colors.redCrimson, 1.5f);
         if(health <= 0)
         {
+            //Drops
+            float dropChance = Random.Range(0, 1.0001f);
+            if(dropChance <= enemy.dropChance)
+            {
+                int rDrop = Random.Range(0, enemy.drops.Length);
+                GameObject newDrop = Instantiate(enemy.drops[rDrop], transform.position, Quaternion.identity);
+            }
+
             GameEvents.gameEvent.EnemyDied();
             Destroy(gameObject);
         }

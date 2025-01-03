@@ -15,6 +15,11 @@ MonoBehaviour:
   enemyName: Skeleton
   speed: 3
   maxHealth: 8
+  dropChance: 0.6
+  drops:
+  - {fileID: 2227472461610901663, guid: ec0680713bd8310488786c749ebd6f6e, type: 3}
+  - {fileID: 865981116944292481, guid: 1808dc8a3659004419142e06c670cce6, type: 3}
+  - {fileID: 865981116944292481, guid: 1808dc8a3659004419142e06c670cce6, type: 3}
   damage: 2
   attackRange: 1
   attackDelay: 0.5

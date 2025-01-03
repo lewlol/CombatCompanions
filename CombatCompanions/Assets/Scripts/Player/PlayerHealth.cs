@@ -13,7 +13,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-        GameEvents.gameEvent.SpawnTextMesh("-" + damage, transform.position, 25, Color.red, 1.5f);
+        GameEvents.gameEvent.SpawnTextMesh("-" + damage, transform.position, 35, ColorIndex.colors.redCrimson, 1.5f);
         if (health <= 0)
         {
             //Dead

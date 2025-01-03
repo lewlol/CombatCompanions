@@ -68,4 +68,22 @@ public class GameEvents : MonoBehaviour
             onSpawnTextMesh(text, spawnLocation, size, color, time);
         }
     }
+
+    public event Action onOpenMerchantUI;
+    public void OpenMerchantUI()
+    {
+        if(onOpenMerchantUI != null)
+        {
+            onOpenMerchantUI();
+        }
+    }
+
+    public event Action onCloseMerchantUI;
+    public void CloseMerchantUI()
+    {
+        if(onCloseMerchantUI != null)
+        {
+            onCloseMerchantUI();
+        }
+    }
 }

@@ -3,14 +3,16 @@ using UnityEngine;
 
 public class CompanionAI : MonoBehaviour
 {
+    Animator anim;
     Rigidbody2D rb;
+    SpriteRenderer sr;
     bool following;
     bool attacking;
 
     bool canAttack;
 
-    public Transform target;
-    public Transform player;
+    Transform target;
+    Transform player;
 
     //Stats
     public Companion companion;
@@ -18,6 +20,10 @@ public class CompanionAI : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponentInChildren<Animator>();
+        sr = GetComponentInChildren<SpriteRenderer>();
+
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         canAttack = true;
     }
 
@@ -46,6 +52,25 @@ public class CompanionAI : MonoBehaviour
             following = false;
             rb.linearVelocity = Vector2.zero;
         }
+
+        //Sprite Flipping
+        if(rb.linearVelocityX > 0)
+        {
+            sr.flipX = false;
+        }else if(rb.linearVelocityX < 0)
+        {
+            sr.flipX = true;
+        }
+
+        //Animations
+        if(rb.linearVelocity != Vector2.zero)
+        {
+            anim.SetBool("isWalking", true);
+        }
+        else
+        {
+            anim.SetBool("isWalking", false);
+        }
     }
 
     private void FixedUpdate()
@@ -67,7 +92,7 @@ public class CompanionAI : MonoBehaviour
     private void FollowTarget(Transform interest)
     {
         Vector2 direction = interest.position - transform.position;
-        rb.linearVelocity = direction * companion.speed;
+        rb.linearVelocity = direction.normalized * companion.speed;
     }
 
     private void AttackEnemy()

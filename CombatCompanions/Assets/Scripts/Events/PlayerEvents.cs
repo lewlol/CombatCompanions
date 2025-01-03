@@ -29,4 +29,34 @@ public class PlayerEvents : MonoBehaviour
             onPlayerDied();
         }
     }
+
+    //CALLED TO ADD SOULS TO PLAYER
+    public event Action<int> onAddSouls;
+    public void AddSouls(int amount)
+    {
+        if(onAddSouls != null)
+        {
+            onAddSouls(amount);
+        }
+    }
+
+    //CALLED TO REMOVE SOULS FROM PLAYER
+    public event Action<int> OnRemoveSouls;
+    public void RemoveSouls(int amount)
+    {
+        if(OnRemoveSouls != null)
+        {
+            OnRemoveSouls(amount);
+        }
+    }
+
+    //THIS IS CALLED WHEN THE SOUL COUNT CHANGES IN ANY WAY
+    public event Action<int> onSoulsCountChanged;
+    public void SoulsCountChanged(int amount)
+    {
+        if (onSoulsCountChanged != null)
+        {
+            onSoulsCountChanged(amount);
+        }
+    }
 }

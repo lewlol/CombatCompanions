@@ -5,6 +5,12 @@ public class Companion : ScriptableObject
 {
     [Header("Companion Info")]
     public string companionName;
+    public string companionDescription;
+    public GameObject companionPrefab;
+
+    [Space] //Merchant Stuff
+    public Sprite companionSprite;
+    public int companionCost;
 
     [Header("Companion Generic Stats")]
     public float speed;

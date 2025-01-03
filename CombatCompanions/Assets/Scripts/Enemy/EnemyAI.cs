@@ -3,7 +3,11 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     public Transform target; //Player
+
     Rigidbody2D rb;
+    Animator anim;
+    SpriteRenderer sr;
+
     bool isAttacking;
     float c;
 
@@ -12,6 +16,9 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponentInChildren<Animator>();
+        sr = GetComponentInChildren<SpriteRenderer>();
+
         target = GameObject.FindGameObjectWithTag("Player").transform;
         c = enemy.attackDelay;
     }
@@ -43,12 +50,22 @@ public class EnemyAI : MonoBehaviour
     }
     private void FollowPlayer()
     {
+        anim.SetBool("isWalking", true);
         Vector2 direction = target.position - transform.position;
         rb.linearVelocity = direction.normalized * enemy.speed;
+
+        if(direction.x > 0)
+        {
+            sr.flipX = false;
+        }else if(direction.x < 0)
+        {
+            sr.flipX = true;
+        }
     }
 
     private void AttackPlayer()
     {
+        anim.SetBool("isWalking", false);
         rb.linearVelocity = Vector2.zero;
 
         float countDown = c -= Time.deltaTime;
