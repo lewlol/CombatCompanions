@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
-  productGUID: e4b250f92cbd04c4d8f808935d9addf2
+  productGUID: 3d74c50be3a4d394c84f2c48e5ac3302
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: CombatCompanions
+  productName: Combat Companions
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -701,14 +701,14 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: CombatCompanions
+  metroPackageName: Combat Companions
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: CombatCompanions
+  metroApplicationDescription: Combat Companions
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -779,10 +779,10 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 0934cd7d-a066-4f08-9b3b-2f49bfa83c9d
+  cloudProjectId: c23e3362-48ec-4ed5-82f9-34a09072eac7
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: CombatCompanions 2025-01-08_19-03-39
+  projectName: Combat Companions 2025-01-09_11-57-12
   organizationId: lewish050803
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
