@@ -681,6 +681,7 @@ GameObject:
   - component: {fileID: 716573694}
   - component: {fileID: 716573696}
   - component: {fileID: 716573697}
+  - component: {fileID: 716573698}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -780,6 +781,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 11400000, guid: 806220605fd932549b71c3eb14889bd1, type: 2}
+--- !u!114 &716573698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716573691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ea08f43b4736674397c3b4172ce3419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  health: 0
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -997,6 +1012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 099912f7182adb844af3c897470acfae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 11400000, guid: e268d16d270e4fc4caf7eac3409e35e2, type: 2}
   health: 5
 --- !u!4 &954458457
 Transform:
@@ -1026,8 +1042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f13fc1600ab6f34097d4f447315a9ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2.5
-  attackDistance: 3
+  enemy: {fileID: 11400000, guid: e268d16d270e4fc4caf7eac3409e35e2, type: 2}
 --- !u!135 &954458459
 SphereCollider:
   m_ObjectHideFlags: 0

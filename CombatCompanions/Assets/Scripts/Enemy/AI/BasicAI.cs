@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class BasicAI : MonoBehaviour
 {
+    public Enemy enemy;
+
     Transform target;
     float distanceToTarget;
 
     Rigidbody rb;
     bool chasing;
-
-    //Stats
-    public float moveSpeed;
-    public float attackDistance;
 
     private void Awake()
     {
@@ -21,7 +19,7 @@ public class BasicAI : MonoBehaviour
     private void Update()
     {
         distanceToTarget = Vector3.Distance(transform.position, target.position);
-        if (distanceToTarget >= attackDistance)
+        if (distanceToTarget >= enemy.attackDistance)
         {
             chasing = true;
         }
@@ -47,12 +45,17 @@ public class BasicAI : MonoBehaviour
     private void ChaseTarget()
     {
         Vector3 direction = target.position - transform.position;
-        rb.linearVelocity = direction.normalized * moveSpeed;
+        rb.linearVelocity = direction.normalized * enemy.moveSpeed;
+    }
+
+    private void AttackTarget()
+    {
+
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackDistance);
+        Gizmos.DrawWireSphere(transform.position, enemy.attackDistance);
     }
 }

@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
-    public Enemy enemy;
+    public float maxHealth;
     public float health;
 
     private void Awake()
     {
-        health = enemy.health;
+        health = maxHealth;
     }
 
     public void TakeDamage(float damage)
@@ -15,7 +15,7 @@ public class EnemyHealth : MonoBehaviour
         health -= damage;
         if(health <= 0)
         {
-            Destroy(gameObject);
+            //Death
         }
     }
 }
